@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Reportes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        async function eliminarReporte(id) {
+            if (!confirm("¿Estás seguro de que deseas eliminar este reporte?")) return;
+            const response = await fetch('/api/reportes', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id })
+            });
+            location.reload();
+        }
+
+        function editarReporte(id, empresa, descripcion, estado) {
+            document.getElementById('reporte-id').value = id;
+            document.getElementById('empresa').value = empresa;
+            document.getElementById('descripcion').value = descripcion;
+            document.getElementById('estado').value = estado;
+        }
+
+        async function guardarReporte(event) {
+            event.preventDefault();
+            const id = document.getElementById('reporte-id').value;
+            const empresa = document.getElementById('empresa').value;
+            const descripcion = document.getElementById('descripcion').value;
+            const estado = document.getElementById('estado').value;
+            const method = id ? 'PUT' : 'POST';
+            const body = { id, empresa, descripcion, estado };
+            const response = await fetch('/api/reportes', {
+                method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            location.reload();
+        }
+    </script>
+</head>
+<body>
+    <h1>Gestión de Reportes</h1>
+
+    <form onsubmit="guardarReporte(event)">
+        <input type="hidden" id="reporte-id">
+        <input type="text" id="empresa" placeholder="Empresa" required>
+        <input type="text" id="descripcion" placeholder="Descripción" required>
+        <input type="text" id="estado" placeholder="Estado" required>
+        <button type="submit">Guardar Reporte</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Empresa</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reporte in reportes %}
+            <tr>
+                <td>{{ reporte[0] }}</td>
+                <td>{{ reporte[1] }}</td>
+                <td>{{ reporte[2] }}</td>
+                <td>{{ reporte[3] }}</td>
+                <td>
+                    <button onclick="editarReporte('{{ reporte[0] }}', '{{ reporte[1] }}', '{{ reporte[2] }}', '{{ reporte[3] }}')">Editar</button>
+                    <button onclick="eliminarReporte('{{ reporte[0] }}')">Eliminar</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="text-align: center;">
+        <a href="/">Volver al Inicio</a>
+    </div>
+</body>
+</html>

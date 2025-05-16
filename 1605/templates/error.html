@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Ha ocurrido un error, intente nuevamente</h1>
+    <p style="text-align: center;">{{ error }}</p>
+    <div style="text-align: center;">
+        <a href="/">Volver al Inicio</a>
+    </div>
+</body>
+</html>

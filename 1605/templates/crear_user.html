@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Crear Nuevo Usuario</h1>
+    <form method="post">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Crear Usuario</button>
+    </form>
+    <div style="text-align: center;">
+        <a href="/">Volver al Inicio</a>
+        <a href="/usuarios">Ver Usuarios</a>
+    </div>
+</body>
+</html>

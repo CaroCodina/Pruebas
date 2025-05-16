@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Bienvenido a la WebApp de Usuarios y Reportes</h1>
+    <p style="text-align: center;">Cantidad de usuarios: <strong>{{ total_users }}</strong></p>
+    <p style="text-align: center;">Cantidad de reportes: <strong>{{ total_reports }}</strong></p>
+    <div style="text-align: center;">
+        <a href="/usuarios">Ver Usuarios</a>
+        <a href="/usuarios/crear">Crear Usuario</a>
+    </div>
+</body>
+</html>

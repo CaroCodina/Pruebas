@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('../images/fondo.jpg') no-repeat center center fixed;
+    background-size: cover; /* ✅ esto hace que cubra toda la pantalla */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Para efecto tipo parallax */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+h1 {
+    text-align: center;
+    color: #004080;
+    margin-top: 40px;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #0066cc;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #0055aa;
+}
+
+form {
+    width: 300px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005999;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #007acc;
+    color: white;
+}
